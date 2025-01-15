@@ -10,21 +10,21 @@ use std::fmt::Write;
 
 pub fn text(c: &mut Criterion) {
     c.bench_function("encode", |b| {
-        #[derive(Clone, Hash, PartialEq, Eq, EncodeLabelSet, Debug)]
+        #[derive(Clone, Hash, PartialEq, Eq, EncodeLabelSet, Debug, Ord, PartialOrd)]
         struct Labels {
             method: Method,
             status: Status,
             some_number: u64,
         }
 
-        #[derive(Clone, Hash, PartialEq, Eq, EncodeLabelValue, Debug)]
+        #[derive(Clone, Hash, PartialEq, Eq, EncodeLabelValue, Debug, Ord, PartialOrd)]
         enum Method {
             Get,
             #[allow(dead_code)]
             Put,
         }
 
-        #[derive(Clone, Hash, PartialEq, Eq, Debug)]
+        #[derive(Clone, Hash, PartialEq, Eq, Debug, Ord, PartialOrd)]
         enum Status {
             Two,
             #[allow(dead_code)]

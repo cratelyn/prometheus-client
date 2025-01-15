@@ -44,13 +44,13 @@ async fn main() -> std::result::Result<(), std::io::Error> {
     Ok(())
 }
 
-#[derive(Clone, Debug, Hash, PartialEq, Eq, EncodeLabelSet)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd, EncodeLabelSet)]
 struct Labels {
     method: Method,
     path: String,
 }
 
-#[derive(Clone, Debug, Hash, PartialEq, Eq, EncodeLabelValue)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd, EncodeLabelValue)]
 enum Method {
     Get,
     Put,

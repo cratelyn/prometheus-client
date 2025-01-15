@@ -932,7 +932,7 @@ mod tests {
             Family::new_with_constructor(|| Histogram::new(exponential_buckets(1.0, 2.0, 10)));
         registry.register("my_histogram", "My histogram", family.clone());
 
-        #[derive(Eq, PartialEq, Hash, Debug, Clone)]
+        #[derive(Eq, PartialEq, PartialOrd, Ord, Debug, Clone)]
         struct EmptyLabels {}
 
         impl EncodeLabelSet for EmptyLabels {
